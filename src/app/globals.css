@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --mdx-red: #CC0000;
+  --mdx-red-dark: #a80000;
+  --mdx-navy: #003057;
+  --mdx-navy2: #1a3a5c;
+  --mdx-white: #ffffff;
+  --mdx-offwhite: #F7F8FA;
+  --mdx-gray: #F0F1F3;
+  --mdx-text: #1a1a2e;
+  --mdx-muted: #6b7280;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #F7F8FA;
+  color: var(--mdx-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ── App shell ── */
+#app-shell {
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: var(--mdx-offwhite);
+  position: relative;
+  box-shadow: 0 0 80px rgba(0,0,0,0.22);
+  overflow: hidden; /* Each page manages its own scroll internally */
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 480px) {
+  #app-shell {
+    border-radius: 36px;
+    height: calc(100vh - 40px);
+  }
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.btn-red {
+  background: var(--mdx-red);
+  color: white;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-red:hover { background: var(--mdx-red-dark); }
+.btn-red:active { transform: scale(0.97); }
+
+.btn-navy {
+  background: var(--mdx-navy);
+  color: white;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CC0000; border-radius: 2px; }
+
+.traffic-low { color: #16a34a; }
+.traffic-medium { color: #d97706; }
+.traffic-high { color: #CC0000; }
+
+canvas.ar-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.slide-up { animation: slide-up 0.25s ease-out; }
+
+@keyframes ping { 75%,100% { transform: scale(2); opacity: 0; } }
+
+:focus-visible { outline: 2px solid #CC0000; outline-offset: 2px; }
