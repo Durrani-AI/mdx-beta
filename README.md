@@ -1,5 +1,5 @@
 AR campus navigation and face attendance app built for Middlesex University.
-./
+
 Hackathon Competition 
 developed by:
 LMGXENON
